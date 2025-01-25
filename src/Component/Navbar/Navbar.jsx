@@ -5,6 +5,7 @@ import { AuthContext } from "../../Context/AuthContextProvider";
 
 export default function Navbar() {
   let { token, setToken } = useContext(AuthContext)
+
   let navg = useNavigate()
   function logout() {
     localStorage.removeItem('token')
@@ -49,7 +50,7 @@ export default function Navbar() {
                 </ul> : ""}
 
               <ul className="w-full xs:w-4/12 m-auto font-medium flex items-center justify-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
-                <ul className="flex w-10/12 items-center justify-end">
+                <ul className="flex w-1/2 md:w-10/12 items-center justify-end">
                   <li>
                     <NavLink to="https://www.instagram.com" target="_blank" className="block py-2 px-2 hover:text-green duration-300 font-medium">
                       <i class="fa-brands fa-instagram"></i>
@@ -81,7 +82,7 @@ export default function Navbar() {
                     </NavLink>
                   </li>
                 </ul>
-                <ul className="flex flex-row w-2/12 justify-center items-center">
+                <ul className="flex flex-row w-1/2 md:w-2/12 justify-center items-center md:justify-start">
                   {token ? <li onClick={logout}>
                     <NavLink to="/signin" className={(x) => x.isActive ? "block py-2 px-3 text-green hover:text-green duration-300 font-medium" : "block py-2 px-3 hover:text-green duration-300 font-medium"}>Logout</NavLink>
                   </li> : <>
